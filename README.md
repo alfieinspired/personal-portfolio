@@ -1,38 +1,75 @@
-# sv
+# Personal Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A modern, responsive portfolio website built with SvelteKit and Bootstrap, featuring dark mode and smooth animations.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 🎨 Modern UI with smooth animations
+- 🌓 Dark/Light mode support
+- 📱 Fully responsive design
+- ⚡ Fast performance with SvelteKit
+- 🎯 SEO optimized
+- 🔧 Easy to customize
 
+## Tech Stack
+
+- [SvelteKit](https://kit.svelte.dev/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or pnpm
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+git clone https://github.com/ctrlthomas/personal-portfolio.git
 ```
 
-## Developing
+2. Install dependencies:
+```bash
+cd personal-portfolio
+npm install
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+3. Start the development server:
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+4. Open your browser and navigate to `http://localhost:5173`
 
-To create a production version of your app:
+## Building for Production
+
+To create a production build:
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+Preview the production build:
+```bash
+npm run preview
+```
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Customization
+
+1. Modify `src/routes/+page.svelte` to update the main content
+2. Update `src/app.css` to change the theme and styling
+3. Edit `src/app.html` to update meta tags and global scripts
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Contact
+
+Thomas Barden - [thomas@thomasbarden.com](mailto:thomas@thomasbarden.com)
+
+Project Link: [https://github.com/ctrlthomas/personal-portfolio](https://github.com/ctrlthomas/personal-portfolio)
