@@ -1,0 +1,174 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color var(--transition-fast) var(--ease-out),
+                border-color var(--transition-fast) var(--ease-out),
+                color var(--transition-fast) var(--ease-out);
+}
+
+:root {
+    --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Poppins', var(--font-primary);
+
+    /* Light theme (default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #0066cc;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --accent-color-transparent: rgba(0, 102, 204, 0.15);
+
+    /* Animation variables */
+    --animation-speed: 0.2s;
+    --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.15s;
+    --transition-normal: 0.2s;
+    --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-color: #3399ff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --accent-color-transparent: rgba(51, 153, 255, 0.15);
+}
+
+body {
+    font-family: var(--font-primary);
+    padding-top: 76px;
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utility class for preventing body scroll */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+.lead {
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+/* Remove all other styles as they're replaced by Bootstrap */
+
+.gradient-text {
+    background: linear-gradient(135deg, #0066cc, #006666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0077ee;
+    transform: translateY(-2px);
+}
+
+.project-card, .contact-item {
+    background: var(--bg-secondary);
+    animation: scaleIn var(--animation-speed) var(--animation-easing) forwards;
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+.btn-outline-dark {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+.btn-outline-dark:hover {
+    color: var(--bg-primary);
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+.navbar,
+.footer,
+.project-card,
+.contact-item,
+.social-links a {
+    transition: all 0.3s ease;
+}
+
+.section {
+    animation: fadeIn var(--animation-speed) var(--animation-easing) forwards;
+}
+
+.project-card,
+.contact-item,
+.tech-item,
+.nav-link,
+.btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Remove transition from heavy properties */
+.navbar,
+.footer,
+.tech-scroll,
+.gradient-blob {
+    transition: none;
+}
+
+/* Specific optimized animations */
+.contact-item {
+    transition: transform var(--transition-fast) var(--ease-bounce),
+                background-color var(--transition-fast) var(--ease-out),
+                color var(--transition-fast) var(--ease-out);
+}
+
+.btn {
+    transition: transform var(--transition-fast) var(--ease-bounce),
+                background-color var(--transition-fast) var(--ease-out),
+                color var(--transition-fast) var(--ease-out);
+}
