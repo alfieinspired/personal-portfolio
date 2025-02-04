@@ -27,6 +27,7 @@
 	"dependencies": {
 		"@sentry/browser": "^8.54.0",
 		"@sentry/sveltekit": "^8.54.0",
+		"@vercel/analytics": "^1.4.1",
 		"dotenv": "^16.4.7"
 	}
 }
