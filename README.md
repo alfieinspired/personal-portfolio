@@ -1,39 +1,79 @@
+<div align="center">
+
 # Personal Portfolio
 
-A modern, responsive portfolio website built with SvelteKit and Bootstrap, featuring dark mode and smooth animations.
+<img src="static/projects/portfolio-light.png" alt="Portfolio Preview" width="600px"/>
 
-## Features
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://thomasbarden.com)
+[![Sentry](https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white)](https://sentry.io)
+[![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://kit.svelte.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
-- 🎨 Modern UI with smooth animations and transitions
-- 🌓 Dark/Light mode with theme persistence
+A modern, responsive portfolio website with error monitoring and automated deployments.
+
+[Live Demo](https://thomasbarden.com) · [Report Bug](https://github.com/ctrlthomas/personal-portfolio/issues) · [Request Feature](https://github.com/ctrlthomas/personal-portfolio/issues)
+
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td>
+
+- 🎨 Modern UI with smooth animations
+- 🌓 Dark/Light mode with persistence
 - 📱 Fully responsive design
 - ⚡ Fast performance with SvelteKit
 - ♿ Accessibility features
+
+</td>
+<td>
+
 - 🔧 Easy to customize
-- 📬 Contact form with form validation
+- 📬 Contact form with validation
 - 🎯 SEO optimized
+- 📊 Error monitoring with Sentry
+- 🚀 Automated deployments
 
-## Tech Stack
+</td>
+</tr>
+</table>
 
-- [SvelteKit](https://kit.svelte.dev/) - Modern web framework
-- [Bootstrap 5](https://getbootstrap.com/) - UI components and grid system
-- [TypeScript](https://www.typescriptlang.org/) - Type safety and better DX
-- [Bootstrap Icons](https://icons.getbootstrap.com/) - Icon library
-- [Getform.io](https://getform.io/) - Form backend service
+## 🛠️ Tech Stack
 
-## Pages
+<table>
+<tr>
+<td>
 
-- **Home** - Introduction, tech stack, projects preview, and experience
-- **Projects** - Detailed showcase of projects with live demos
-- **Contact** - Contact form with validation and success feedback
+### Frontend
+- [SvelteKit](https://kit.svelte.dev)
+- [Bootstrap 5](https://getbootstrap.com)
+- [TypeScript](https://www.typescriptlang.org)
 
-## Getting Started
+</td>
+<td>
+
+### DevOps
+- [Sentry](https://sentry.io)
+- [GitHub Actions](https://github.com/features/actions)
+- [Vercel](https://vercel.com)
+
+</td>
+</tr>
+</table>
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js (version 16 or higher)
 - npm or pnpm
 - Getform.io account for contact form
+- Sentry account for error monitoring
+- Vercel account for deployment
 
 ### Installation
 
@@ -54,6 +94,10 @@ npm run dev
 ```
 
 4. Open your browser and navigate to `http://localhost:5173`
+
+### Environment Variables
+
+Rename `.env.example` to `.env` file with the following and fill out the required information.
 
 ## Building for Production
 
