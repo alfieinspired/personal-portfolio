@@ -1,5 +1,6 @@
 <script>
-    import '../app.css';
+    // Remove or update the app.css import
+    // import '../app.css';
     import Nav from '../components/Nav.svelte';
     import Footer from '../components/Footer.svelte';
     import Section from '../components/Section.svelte';
@@ -20,19 +21,20 @@
         // Add more projects here
     ];
 
-    const contactLinks = [
+    const experiences = [
         {
-            href: "mailto:thomas@thomasbarden.com",
-            icon: "bi-envelope-fill",
-            label: "Email",
-            description: "Get in touch via email"
+            role: "Frontend Development Student",
+            company: "Meta & Coursera",
+            period: "2025 - Present",
+            description: "Studying advanced frontend development through Meta's professional certification program, focusing on modern web technologies and best practices.",
+            skills: ["React", "JavaScript", "UI/UX", "Web APIs"]
         },
         {
-            href: "https://github.com/ctrlthomas",
-            icon: "bi-github",
-            label: "GitHub",
-            description: "Check out my code",
-            isExternal: true
+            role: "Freelance Developer",
+            company: "Self-employed",
+            period: "2023 - Present",
+            description: "Building custom web solutions for clients using modern web technologies.",
+            skills: ["SvelteKit", "Bootstrap", "REST APIs", "Git"]
         }
     ];
 </script>
@@ -40,7 +42,7 @@
 <div class="page-wrapper">
     <div class="gradient-blob" in:fade={{ duration: 1000 }}></div>
     <Nav />
-    <main class="container py-5">
+    <main class="main-content container py-5" aria-label="Portfolio content">
         <Section title="Thomas Barden" subtitle="Frontend Developer" className="hero-section">
             <div class="hero-content" in:fly={{ y: 20, duration: 600, delay: 200 }}>
                 <p class="lead text-center mb-4">
@@ -53,25 +55,25 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="#projects" 
-                       class="btn btn-primary btn-lg project-btn"
+                       class="btn btn-lg project-btn"
                        on:mouseenter={() => isHovered = true}
                        on:mouseleave={() => isHovered = false}>
-                        View Projects
-                        <div class="btn-icon" class:active={isHovered}>
-                            <i class="bi bi-arrow-right"></i>
-                        </div>
+                        <span>View Projects</span>
+                        <i class="bi bi-arrow-right ms-2" class:active={isHovered}></i>
                     </a>
-                    <a href="https://github.com/ctrlthomas" class="btn btn-outline-dark btn-lg ms-3">
-                        <i class="bi bi-github me-2"></i>GitHub
+                    <a href="https://github.com/ctrlthomas" class="btn btn-outline btn-lg">
+                        <i class="bi bi-github me-2"></i>
+                        <span>GitHub</span>
                     </a>
                 </div>
             </div>
         </Section>
 
-        <Section title="Projects">
-            <div class="projects-grid">
+        <Section title="Projects" id="projects">
+            <div class="projects-grid" role="list" aria-label="Project list">
                 {#each projects as project, i}
                     <div class="project-card"
+                         role="listitem"
                          in:fly={{ y: 20, duration: 400, delay: 150 * i }}>
                         <div class="project-header">
                             <h3>{project.title}</h3>
@@ -87,8 +89,12 @@
                         </div>
                         <div class="project-links">
                             {#if project.githubUrl}
-                                <a href={project.githubUrl} class="project-link" target="_blank" rel="noopener noreferrer">
-                                    <i class="bi bi-github"></i>
+                                <a href={project.githubUrl} 
+                                   class="project-link" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   aria-label="View source code for {project.title} on GitHub">
+                                    <i class="bi bi-github" aria-hidden="true"></i>
                                     <span>View Source</span>
                                 </a>
                             {/if}
@@ -98,22 +104,23 @@
             </div>
         </Section>
 
-        <Section title="Contact">
-            <div class="contact-grid">
-                {#each contactLinks as link}
-                    <a href={link.href} 
-                       class="contact-item"
-                       target={link.isExternal ? "_blank" : undefined}
-                       rel={link.isExternal ? "noopener noreferrer" : undefined}>
-                        <div class="contact-icon">
-                            <i class="bi {link.icon}"></i>
+        <Section title="Experience">
+            <div class="experience-grid" role="list" aria-label="Work experience">
+                {#each experiences as exp}
+                    <div class="experience-card" role="listitem"
+                         in:fly={{ y: 20, duration: 400 }}>
+                        <div class="experience-header">
+                            <h3>{exp.role}</h3>
+                            <span class="experience-period">{exp.period}</span>
                         </div>
-                        <div class="contact-info">
-                            <h4>{link.label}</h4>
-                            <p>{link.description}</p>
+                        <div class="experience-company">{exp.company}</div>
+                        <p class="text-muted">{exp.description}</p>
+                        <div class="experience-skills">
+                            {#each exp.skills as skill}
+                                <span class="experience-skill">{skill}</span>
+                            {/each}
                         </div>
-                        <i class="bi bi-arrow-right contact-arrow"></i>
-                    </a>
+                    </div>
                 {/each}
             </div>
         </Section>
@@ -158,6 +165,46 @@
         margin-top: 2rem;
     }
 
+    .hero-buttons .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s var(--ease-bounce);
+    }
+
+    .hero-buttons .project-btn {
+        background: var(--accent-color);
+        color: white;
+        border: none;
+    }
+
+    .hero-buttons .project-btn:hover {
+        background: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+    }
+
+    .hero-buttons .btn-outline {
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        background: transparent;
+    }
+
+    .hero-buttons .btn-outline:hover {
+        background: var(--bg-secondary);
+        transform: translateY(-2px);
+    }
+
+    .hero-buttons i {
+        transition: transform 0.3s ease;
+    }
+
+    .hero-buttons i.active {
+        transform: translateX(4px);
+    }
+
     @media (max-width: 576px) {
         .hero-buttons {
             flex-direction: column;
@@ -165,7 +212,8 @@
         
         .hero-buttons .btn {
             width: 100%;
-            margin: 0.5rem 0 !important;
+            justify-content: center;
+            margin: 0.5rem 0;
         }
     }
 
@@ -235,69 +283,65 @@
         color: var(--accent-color);
     }
 
-    .contact-grid {
+    .experience-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        list-style: none;
+        padding: 0;
     }
 
-    .contact-item {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.5rem;
+    .experience-card {
         background: var(--bg-secondary);
-        border-radius: 1rem;
-        color: var(--text-primary);
-        text-decoration: none;
-        transition: all 0.3s ease;
         border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: transform 0.3s var(--ease-bounce);
+        height: 100%; /* Ensure equal height */
     }
 
-    .contact-item:hover {
+    .experience-card:hover {
         transform: translateY(-2px);
-        background: var(--accent-color);
-        color: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .contact-icon {
+    .experience-header {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        background: var(--bg-primary);
-        border-radius: 12px;
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
+        margin-bottom: 0.5rem;
     }
 
-    .contact-info h4 {
-        font-size: 1.1rem;
+    .experience-header h3 {
+        font-size: 1.25rem;
         margin: 0;
     }
 
-    .contact-info p {
-        margin: 0;
+    .experience-period {
         font-size: 0.9rem;
-        opacity: 0.8;
+        color: var(--text-secondary);
     }
 
-    .contact-arrow {
-        opacity: 0;
-        transform: translateX(-10px);
-        transition: all 0.3s ease;
+    .experience-company {
+        color: var(--accent-color);
+        font-weight: 500;
+        margin-bottom: 1rem;
     }
 
-    .contact-item:hover .contact-arrow {
-        opacity: 1;
-        transform: translateX(0);
+    .experience-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
     }
 
-    .contact-item:hover .contact-icon {
-        background: rgba(255, 255, 255, 0.2);
+    .experience-skill {
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.85rem;
+        border: 1px solid var(--border-color);
     }
 
     .badge {
@@ -315,22 +359,23 @@
         gap: 0.75rem;
     }
 
-    .btn-icon {
-        transition: transform 0.3s ease;
-    }
-
-    .btn-icon.active {
-        transform: translateX(4px);
-    }
-
-    @media (max-width: 576px) {
-        .project-btn {
-            justify-content: center;
-        }
-    }
-
     .hero-buttons a {
         transition: transform 0.2s var(--animation-easing),
-                    background-color 0.2s var(--animation-easing);
+                   background-color 0.2s var(--animation-easing);
+    }
+
+    /* Ensure proper spacing below navbar */
+    .main-content {
+        padding-top: 5rem; /* Increase padding to prevent overlap */
+    }
+
+    /* Add space between sections */
+    :global(.section) {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    :global(.section:first-child) {
+        margin-top: 3rem; /* Extra space for first section */
     }
 </style>

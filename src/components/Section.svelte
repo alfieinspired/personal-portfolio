@@ -1,20 +1,18 @@
-<script>
-    export let title;
-    export let subtitle = '';
-    export let className = '';
+<script lang="ts">
+    export let title: string;
+    export let subtitle: string | undefined = undefined;
+    export let className: string | undefined = undefined;
+    export let id: string | undefined = undefined;
 </script>
 
-<section class="section {className}">
-    <div class="section-header text-center mb-4">
-        <h2 class="display-6 fw-bold mb-2" style="color: var(--text-primary)">{title}</h2>
+<section {id} class="section {className || ''}" aria-labelledby={id || title.toLowerCase()}>
+    <div class="text-center mb-5">
+        <h2 id={id || title.toLowerCase()} class="display-6 fw-bold mb-3">{title}</h2>
         {#if subtitle}
-            <p class="text-muted h5 fw-normal">{subtitle}</p>
+            <p class="lead text-muted">{subtitle}</p>
         {/if}
     </div>
-    
-    <div class="section-content">
-        <slot></slot>
-    </div>
+    <slot />
 </section>
 
 <style>

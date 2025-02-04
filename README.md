@@ -4,19 +4,28 @@ A modern, responsive portfolio website built with SvelteKit and Bootstrap, featu
 
 ## Features
 
-- 🎨 Modern UI with smooth animations
-- 🌓 Dark/Light mode support
+- 🎨 Modern UI with smooth animations and transitions
+- 🌓 Dark/Light mode with theme persistence
 - 📱 Fully responsive design
 - ⚡ Fast performance with SvelteKit
-- 🎯 SEO optimized
+- ♿ Accessibility features
 - 🔧 Easy to customize
+- 📬 Contact form with form validation
+- 🎯 SEO optimized
 
 ## Tech Stack
 
-- [SvelteKit](https://kit.svelte.dev/)
-- [Bootstrap 5](https://getbootstrap.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [SvelteKit](https://kit.svelte.dev/) - Modern web framework
+- [Bootstrap 5](https://getbootstrap.com/) - UI components and grid system
+- [TypeScript](https://www.typescriptlang.org/) - Type safety and better DX
+- [Bootstrap Icons](https://icons.getbootstrap.com/) - Icon library
+- [Getform.io](https://getform.io/) - Form backend service
+
+## Pages
+
+- **Home** - Introduction, tech stack, projects preview, and experience
+- **Projects** - Detailed showcase of projects with live demos
+- **Contact** - Contact form with validation and success feedback
 
 ## Getting Started
 
@@ -24,6 +33,7 @@ A modern, responsive portfolio website built with SvelteKit and Bootstrap, featu
 
 - Node.js (version 16 or higher)
 - npm or pnpm
+- Getform.io account for contact form
 
 ### Installation
 

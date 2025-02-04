@@ -1,8 +1,10 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import ThemeToggle from './ThemeToggle.svelte';
+    import { theme } from '$lib/stores/theme';
     
     let isMenuOpen = false;
+    let mounted = false;
     
     const navItems = [
         { href: '/', label: 'Home' },
@@ -41,6 +43,7 @@
     }
 
     onMount(() => {
+        mounted = true;
         return () => {
             if (handleEscape) {
                 window.removeEventListener('keydown', handleEscape);
@@ -50,7 +53,7 @@
     });
 </script>
 
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top" class:mounted={mounted}>
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="/" aria-label="Home">
@@ -107,6 +110,12 @@
         backdrop-filter: blur(10px);
         padding: 0.75rem 0;
         border-bottom: 1px solid var(--border-color);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .navbar.mounted {
+        opacity: 1;
     }
 
     /* Logo Styles */
