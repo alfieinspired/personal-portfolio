@@ -27,12 +27,6 @@
 	"optionalDependencies": {
 		"fsevents": "^2.3.3"
 	},
-	"engines": {
-		"node": "18.x"
-	},
-	"overrides": {
-		"fsevents": "^2.3.3"
-	},
 	"dependencies": {
 		"@sentry/browser": "^8.54.0",
 		"@sentry/sveltekit": "^8.54.0",
