@@ -21,6 +21,8 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@sentry/browser": "^8.54.0",
+		"@sentry/sveltekit": "^8.54.0",
 		"dotenv": "^16.4.7"
 	}
 }
