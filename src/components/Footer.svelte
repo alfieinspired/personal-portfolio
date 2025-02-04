@@ -15,7 +15,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/projects">Projects</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="https://github.com/ctrlthomas/project-portfolio">Source Code</a></li>
+                    <li><a href="https://github.com/ctrlthomas/personal-portfolio">Source Code</a></li>
                 </ul>
             </div>
             
