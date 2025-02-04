@@ -5,7 +5,8 @@ import { PUBLIC_SENTRY_DSN } from '$env/static/public';
 Sentry.init({
     dsn: PUBLIC_SENTRY_DSN,
     tracesSampleRate: 1.0,
-    environment: process.env.NODE_ENV,
+    environment: process.env.VERCEL_ENV || 'development',
+    release: process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev',
     
     integrations: [
         browserTracingIntegration(),
